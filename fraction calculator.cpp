@@ -8,7 +8,8 @@ int NOD(int number_1, int number_2);
 int AlgorithmC();
 int NOK(int number_1, int number_2);
 
-int AlgorithmA(int number, int *list) { 
+int AlgorithmA(int number, int *list) 
+{ 
     int more=number, i=2, j=0; 
     while (i<=more) { 
         if (number%i==0) { 
@@ -21,7 +22,8 @@ int AlgorithmA(int number, int *list) {
     return *list; 
 } 
 
-int NOD(int number_1, int number_2) { 
+int NOD(int number_1, int number_2) 
+{ 
     int nod=1, j, max_number, list1[21], list2[21];  
     AlgorithmA(number_1, list1);
     AlgorithmA(number_2, list2);
@@ -38,7 +40,8 @@ int NOD(int number_1, int number_2) {
     return nod; 
 }
 
-int AlgorithmC() {
+int AlgorithmC() 
+{
     int number, error=1;
     string enter;
     do {
@@ -50,13 +53,14 @@ int AlgorithmC() {
             error=0;
         }
         catch(...) {
-            cout<<"Ошибка ввода: введите числовое значение: ";
+            cout<<"Input error: Enter a numeric value: ";
         }
     } while(error);
     return number;
 }
 
-int NOK(int number_1, int number_2, int *list1, int *list2) {
+int NOK(int number_1, int number_2, int *list1, int *list2) 
+{
     int j, nok=1;
     AlgorithmA(number_1, list1);
     AlgorithmA(number_2, list2);
@@ -74,13 +78,13 @@ int main()
     int numerator_1, denominator_1, numerator_2, denominator_2; 
     char operation=0; 
     do {
-        cout<<"Введите первый числитель: "; numerator_1=AlgorithmC();
-        cout<<"Введите первый знаменатель: "; denominator_1=AlgorithmC();
-        cout<<"Введите второй числитель: "; numerator_2=AlgorithmC();
-        cout<<"Введите второй знаменатель: "; denominator_2=AlgorithmC();
-        cout<<"Введите действие ('+', '-', '*' или '/'): "; cin>>operation; 
+        cout<<"Enter the first numerator: "; numerator_1=AlgorithmC();
+        cout<<"Enter the first denominator: "; denominator_1=AlgorithmC();
+        cout<<"Enter the second numerator: "; numerator_2=AlgorithmC();
+        cout<<"Enter the second denominator: "; denominator_2=AlgorithmC();
+        cout<<"Enter the action ('+', '-', '*' or '/'): "; cin>>operation; 
         if (denominator_1==0 or denominator_2==0 or (numerator_2==0 and operation=='/')) {
-            cout<<"Перезапустите программу и введите в качестве знаменателя число, отличное от 0, и при делении - числитель второго числа, отличный от нуля.";
+            cout<<"Restart the program and enter a number other than 0 as the denominator, and when dividing, the numerator of the second number other than zero.";
         } 
         else error=0;
     }while(error);
