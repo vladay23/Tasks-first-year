@@ -46,7 +46,7 @@ int main() {
     char letter, nearestPointLetter;
     string input_;
     
-    cout<<" Ввод координат точек будет через генератор случайных чисел? (yes/no) "<<endl; cin>>input_;
+    cout<<" The coordinates of the points will be entered through a random number generator? (yes/no) "<<endl; cin>>input_;
     
     if (input_=="no") {
         for (i=1; i<=26; i++) {
@@ -84,10 +84,10 @@ int main() {
         for (it=field.begin(); it!=field.end(); it++) cout<<" ";
     }
     
-    cout<<" Результат: "<<minDistance<<endl;
+    cout<<" Result: "<<minDistance<<endl;
     ofstream out("points.txt");
     if (out.is_open()) {
-        out<<"Точки :";
+        out<<" The order of connecting points:";
         for (i=0; i<=25; i++) {
             out<<" "<<res[i];
         }
