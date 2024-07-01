@@ -10,17 +10,17 @@ int main()
     int sum_days_31 = 0, sum_days_30 = 0, sum_days_29 = 0, sum_days_28 = 0;
     int total_days = 0, total = 0, total_year = 0, total_month = 0;
     cin >> year;
-    //проверка на високосность года -> кол-ство дней в феврале
+    //leap year check -> number of days in February
     if (year % 4 == 0 or ((year % 100 == 0) and (year % 400 == 0))) {
         february = 29;
     }
-    //сумма цифр в году в модуле на всякий случай
+    //the sum of the digits in the year in the module, just in case
     while (year != 0) {
         sum_year = sum_year + year % 10; 
         year = year / 10;
     }
     sum_year = abs(sum_year);
-    //сумма дней для 31, 30, 29 и 28 дней в месяце
+    //the sum of days for 31, 30, 29 and 28 days in a month
     for (i = 1; i <= 31; i++) {
         sum_days_31 = sum_days_31 + (i % 10 + i / 10);
         switch(i) {
@@ -29,28 +29,28 @@ int main()
             case 28: sum_days_28 = sum_days_31; break;
         }
     }
-    //кол-ство дней в году в зависимости от високосности
+    //number of days per year depending on the leap year
     if (february == 28) {
         sum_days_29 = 0;
         kol_days = 365;
     }
     else sum_days_28 = 0;
-    //сумма цифр месяцев до июля включительно
+    //the sum of the digits of the months up to and including July
     for (i = 1; i <= 7; i++) {
         if (i % 2 != 0) total_month = total_month + (i * 31);
         else if (i % 2 == 0 and i != 2) total_month = total_month + (i * 30);
     }
-    //сумма цифр месяцев после июня включительно
+    //the sum of the digits of the months after June inclusive
     for (i = 8; i <= 12; i++) {
         if (i % 2 == 0) total_month = total_month + (i % 10 + i / 10) * 31;
         else if (i % 2 != 0) total_month = total_month + (i % 10 + i / 10) * 30;
     }
-    //сумма цифр всех дней в году
+    //the sum of the digits of all days in a year
     total_days = sum_days_28 + sum_days_29 + sum_days_30 * 4 + sum_days_31 * 7;
-    //сумма цифр всех дат по году
+    //the sum of the digits of all dates by year
     total_year = kol_days * sum_year;
     total = total_days + total_year + total_month + february * 2;
-    //проверка: cout << " " << total_days << " " << total_year << " " << total_month+february*2;
+    //check: cout << " " << total_days << " " << total_year << " " << total_month+february*2;
     cout << total;
 
     return 0;
